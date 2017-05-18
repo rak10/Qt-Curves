@@ -12,3 +12,29 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_btnAsteroid_clicked()
+{
+    // change background color for render area
+
+    this->ui->renderArea->setBackgroundColor(Qt::red);
+    this->ui->renderArea->repaint();
+}
+
+void MainWindow::on_btnCycloid_clicked()
+{
+    this->ui->renderArea->setBackgroundColor(Qt::green);
+    this->ui->renderArea->repaint();
+}
+
+void MainWindow::on_btnHuygens_clicked()
+{
+    this->ui->renderArea->setBackgroundColor(Qt::blue);
+    this->ui->renderArea->repaint();
+}
+
+void MainWindow::on_btnHypo_clicked()
+{
+    this->ui->renderArea->setBackgroundColor(Qt::yellow);
+    this->ui->renderArea->repaint();
+}
