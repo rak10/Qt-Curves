@@ -28,20 +28,26 @@ void RenderArea::on_shape_changed()
     case Asteroid:
         //load asteroid specific values
         mScale = 40;
-        mIntervalLength = 2* M_PI;
+        mIntervalLength = 2 * M_PI;
         mStepCount = 256;
         break;
 
     case Cycloid:
-
+        mScale = 4;
+        mIntervalLength = 6 * M_PI;
+        mStepCount = 128;
         break;
 
     case HuygensCycloid:
-
+        mScale = 4;
+        mIntervalLength = 4 * M_PI;
+        mStepCount = 256;
         break;
 
     case HypoCycloid:
-
+        mScale = 15;
+        mIntervalLength = 2 * M_PI;
+        mStepCount = 256;
         break;
 
     }
@@ -86,9 +92,26 @@ QPointF RenderArea::compute_asteroid(float t)
 
 }
 
-QPointF RenderArea::compute_cycloid(float t) {}
-QPointF RenderArea::compute_huygens(float t) {}
-QPointF RenderArea::compute_hypo(float t) {}
+QPointF RenderArea::compute_cycloid(float t)
+{
+    return QPointF(
+                1.5 * (1 - cos(t)) , //x coordinate
+                1.5 * (t - sin(t))   //y coordinate
+                );
+}
+QPointF RenderArea::compute_huygens(float t)
+{
+    return QPointF (
+                4 * (3 * cos(t) - cos (3 * t)) , //x coordinate
+                4 * (3 * sin(t) - sin (3 * t))   //y coordinate
+                );
+}
+QPointF RenderArea::compute_hypo(float t) {
+    return QPointF(
+                1.5 * (2 * cos(t) + cos(2 * t)), //x coordinate
+                1.5 * (2 * sin(t) - sin(2 * t))  //y coordinate
+                );
+}
 QPointF RenderArea::compute_future_curve(float t) {}
 
 
