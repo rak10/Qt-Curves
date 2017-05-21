@@ -27,6 +27,9 @@ public:
     void setInterval(float interval) { mIntervalLength = interval; repaint(); }
     float interval() const { return mIntervalLength;}
 
+    void setStepCount (int step) { mStepCount = step; repaint(); }
+    int stepCount() const { return mStepCount; }
+
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
