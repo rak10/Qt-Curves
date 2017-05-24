@@ -58,6 +58,18 @@ void RenderArea::on_shape_changed()
         mStepCount = 128;
         break;
 
+   case Cloud1:
+        mIntervalLength = 28 * M_PI;
+        mScale = 10;
+        mStepCount = 128;
+        break;
+
+   case Cloud2:
+         mIntervalLength = 28 * M_PI;
+         mScale = 10;
+         mStepCount = 128;
+         break;
+
     }
 }
 
@@ -82,6 +94,14 @@ QPointF RenderArea::compute(float t)
 
     case Line:
         return compute_line(t);
+        break;
+
+    case Cloud1:
+        return compute_cloud1(t);
+        break;
+
+    case Cloud2:
+        return compute_cloud2(t);
         break;
 
     default:
@@ -125,6 +145,27 @@ QPointF RenderArea::compute_line(float t)
     return QPointF (
             1-t, 1 - t
                 );
+}
+
+QPointF RenderArea::compute_cloud1(float t)
+{
+   return compute_cloud_with_sign(t, -1);
+}
+
+QPointF RenderArea::compute_cloud2(float t)
+{
+    return compute_cloud_with_sign(t, 1);
+}
+
+QPointF RenderArea::compute_cloud_with_sign (float t, float sign)
+{
+    float a = 14;
+    float b = 1;
+
+    float x = (a+b) * cos(t * b / a) + sign * b * cos(t*(a+b) / a);
+    float y = (a+b) * sin(t * b / a) - b * sin(t*(a+b) / a);
+
+    return QPointF(x,y);
 }
 
 
