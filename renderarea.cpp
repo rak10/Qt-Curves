@@ -70,6 +70,12 @@ void RenderArea::on_shape_changed()
          mStepCount = 128;
          break;
 
+  case Circle:
+        mIntervalLength = 2 * M_PI;
+        mScale = 100;
+        mStepCount = 128;
+        break;
+
     }
 }
 
@@ -102,6 +108,10 @@ QPointF RenderArea::compute(float t)
 
     case Cloud2:
         return compute_cloud2(t);
+        break;
+
+    case Circle:
+        return compute_circle(t);
         break;
 
     default:
@@ -166,6 +176,15 @@ QPointF RenderArea::compute_cloud_with_sign (float t, float sign)
     float y = (a+b) * sin(t * b / a) - b * sin(t*(a+b) / a);
 
     return QPointF(x,y);
+}
+
+QPointF RenderArea::compute_circle(float t)
+{
+    return QPointF(
+                cos(t),
+                sin(t)
+
+                );
 }
 
 

@@ -40,6 +40,8 @@ private slots:
 
     void on_btnCloud2_clicked();
 
+    void on_btnCircle_clicked();
+
 private:
     void update_ui();
 

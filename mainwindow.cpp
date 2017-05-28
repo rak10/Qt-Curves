@@ -74,6 +74,14 @@ void MainWindow::on_btnCloud2_clicked()
     update_ui();
 }
 
+void MainWindow::on_btnCircle_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Circle);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
+
+
 
 
 void MainWindow::on_spinScale_valueChanged(double scale)
@@ -102,5 +110,6 @@ void MainWindow::on_btnLineColour_clicked()
     QColor lineColour = QColorDialog::getColor(ui->renderArea->shapeColor(), this, "Select Color");
     ui->renderArea->setShapeColor(lineColour);
 }
+
 
 
