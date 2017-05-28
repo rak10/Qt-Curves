@@ -21,7 +21,7 @@ public:
         HypoCycloid,
         Line,
         Circle,
-        //Ellipse,
+        Ellipse,
         //Fancy,
         //Starfish,
         Cloud1,
@@ -64,7 +64,7 @@ private:
     QPointF compute_hypo(float t);
     QPointF compute_line(float t);
     QPointF compute_circle(float t);
-    //QPointF compute_ellipse(float t);
+    QPointF compute_ellipse(float t);
     //QPointF compute_fancy(float t);
     //QPointF compute_starfish(float t);
     QPointF compute_cloud1(float t);

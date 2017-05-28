@@ -82,7 +82,12 @@ void MainWindow::on_btnCircle_clicked()
 }
 
 
-
+void MainWindow::on_btnEllipse_clicked()
+{
+    this->ui->renderArea->setShape(RenderArea::Ellipse);
+    this->ui->renderArea->repaint();
+    update_ui();
+}
 
 void MainWindow::on_spinScale_valueChanged(double scale)
 {
@@ -110,6 +115,4 @@ void MainWindow::on_btnLineColour_clicked()
     QColor lineColour = QColorDialog::getColor(ui->renderArea->shapeColor(), this, "Select Color");
     ui->renderArea->setShapeColor(lineColour);
 }
-
-
 

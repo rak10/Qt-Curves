@@ -76,6 +76,12 @@ void RenderArea::on_shape_changed()
         mStepCount = 128;
         break;
 
+    case Ellipse:
+          mIntervalLength = 2 * M_PI;
+          mScale = 75;
+          mStepCount = 256;
+          break;
+
     }
 }
 
@@ -112,6 +118,10 @@ QPointF RenderArea::compute(float t)
 
     case Circle:
         return compute_circle(t);
+        break;
+
+    case Ellipse:
+        return compute_ellipse(t);
         break;
 
     default:
@@ -184,6 +194,17 @@ QPointF RenderArea::compute_circle(float t)
                 cos(t),
                 sin(t)
 
+                );
+}
+
+QPointF RenderArea::compute_ellipse(float t)
+{
+    float a = 2;
+    float b = 1.1;
+
+    return QPointF(
+                a * cos(t),
+                b * sin(t)
                 );
 }
 
