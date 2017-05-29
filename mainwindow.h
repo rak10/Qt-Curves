@@ -44,6 +44,8 @@ private slots:
 
     void on_btnEllipse_clicked();
 
+    void on_btnFancy_clicked();
+
 private:
     void update_ui();
 

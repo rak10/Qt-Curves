@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>581</width>
-      <height>371</height>
+      <height>372</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -124,6 +124,13 @@
         <widget class="QPushButton" name="btnEllipse">
          <property name="text">
           <string>Ellipse</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnFancy">
+         <property name="text">
+          <string>Fancy Curve</string>
          </property>
         </widget>
        </item>
