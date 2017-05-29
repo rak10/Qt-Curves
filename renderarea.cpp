@@ -88,6 +88,12 @@ void RenderArea::on_shape_changed()
            mStepCount = 512;
            break;
 
+    case Starfish:
+           mIntervalLength = 6 * M_PI;
+           mScale = 25;
+           mStepCount = 256;
+           break;
+
     }
 }
 
@@ -132,6 +138,10 @@ QPointF RenderArea::compute(float t)
 
     case Fancy:
         return compute_fancy(t);
+        break;
+
+    case Starfish:
+        return compute_starfish(t);
         break;
 
     default:
@@ -223,6 +233,19 @@ QPointF RenderArea::compute_fancy(float t)
     return QPointF(
                 11 * cos(t) - 6 * cos(11.0f * t / 6),
                 11 * sin(t) - 6 * sin(11.0f * t / 6)
+                );
+}
+
+QPointF RenderArea::compute_starfish(float t)
+{
+    float R = 5;
+    float r = 3;
+    float d = 5;
+
+    return QPointF(
+                (R - r) * cos (t) + d * cos(t * (R-r) / r),
+                (R - r) * sin (t) - d * sin(t * (R-r) / r)
+
                 );
 }
 
